@@ -1,5 +1,5 @@
 {
-  "name": "parceltemplate",
+  "name": "nyancatgame",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,6 +16,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "autoprefixer": "9.8.6",
     "eslint": "^7.10.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.1",
@@ -26,9 +28,7 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.4.0",
     "parcel-bundler": "^1.12.4",
-    "stylelint": "^13.7.2",
-    "stylelint-config-standard": "^20.0.0",
-    "postcss": "7.0.35",
+    "postcss": "^8.1.1",
     "postcss-clean": "^1.1.0",
     "postcss-font-magician": "^2.3.1",
     "postcss-mixins": "^6.2.3",
@@ -36,19 +36,23 @@
     "postcss-nesting": "^7.0.1",
     "postcss-preset-env": "^6.7.0",
     "postcss-simple-vars": "5.0.2",
-    "@fullhuman/postcss-purgecss": "^3.0.0"
+    "stylelint": "^13.7.2",
+    "stylelint-config-standard": "^20.0.0"
   },
   "lint-staged": {
     "src/**/*.{js,jsx}": [
-      "eslint . --fix"
+      "eslint src/ --fix"
     ],
     "src/**/*.css": [
-      "stylelint --fix"
+      "stylelint src/**/*.css --fix"
     ]
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "dependencies": {
+    "howler": "^2.2.0"
   }
 }
