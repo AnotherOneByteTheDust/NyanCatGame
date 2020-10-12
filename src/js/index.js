@@ -6,17 +6,20 @@ import music from "../assets/sound/nyan-cat.mp3";
 import nyanCatImage from "../assets/img/nyan-cat.png";
 
 const gameSound = new Howl({
-  src: music
+  src: music,
+  loop: true
 });
 
 const page = document.querySelector(".screen");
 const asteroids = [];
 
+// Spawns NyanCat and Asteroids
 function startGame () {
   const game = document.getElementById("game");
   const asteroidsDom = document.getElementById("asteroids");
-
+  const scoreboard = document.querySelector(".score");
   const nyanCat = new NyanCat();
+  let score = 0;
   game.appendChild(nyanCat);
 
   setInterval(() => {
@@ -42,6 +45,7 @@ function startGame () {
       if (removeAsteroid) {
         asteroidsDom.removeChild(asteroid);
         asteroids.splice(0, 1);
+        scoreboard.textContent = (++score).toString().padStart(5, "0");
       }
 
       const catPosition = nyanCat.getCoords();
@@ -50,21 +54,31 @@ function startGame () {
   }, 25);
 }
 
+// Create game screen
 function prepareGame () {
   page.textContent = "";
   gameSound.play();
   const element = document.createElement("div");
   element.id = "game";
-  const parent = document.createElement("div");
+  let parent = document.createElement("div");
   parent.classList.add("flex");
   element.appendChild(parent);
-  const child = document.createElement("div");
+  let child = document.createElement("div");
   child.id = "asteroids";
   parent.appendChild(child);
+  parent = document.createElement("div");
+  parent.id = "scoreboard";
+  child = document.createElement("div");
+  child.classList.add("score");
+  child.textContent = "00000";
+  parent.appendChild(child);
+  element.appendChild(parent);
+
   page.appendChild(element);
   startGame();
 }
 
+// Create Menu Screen
 function displayMenu () {
   const element = document.createElement("div");
   element.id = "menu";
