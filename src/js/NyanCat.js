@@ -14,7 +14,7 @@ export class NyanCat extends HTMLElement {
 
   render () {
     this.shadowRoot.innerHTML =
-            `<style>${this.styles}</style>
+      `<style>${this.styles}</style>
             <img src=${this.image}>
             `;
   }

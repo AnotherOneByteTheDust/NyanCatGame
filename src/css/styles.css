@@ -80,3 +80,44 @@ body {
   border-radius: 15px;
   font-family: 'Bowlby One SC', cursive;
 }
+
+.gameover {
+  width: 400px;
+  height: 200px;
+  background-color: #fcfbfe;
+  border-width: 6px;
+  border-color: black;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+
+  & span {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 32px;
+  }
+
+  & button {
+    width: 120px;
+    height: 50px;
+    border-width: 6px;
+    border-color: black;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Bowlby One SC', cursive;
+    font-size: 18px;
+  }
+
+  & button:hover {
+    background-color: #5643fd;
+  }
+}
+
+.flexcenter {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
